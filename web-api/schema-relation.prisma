@@ -1,0 +1,43 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Sessions {
+  sessionId String   @id @map("session_id")
+  title     String   @map("title")
+  date      String   @map("date")
+  start     String   @map("start")
+  end       String   @map("end")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  sessionSpeakers SessionSpeakers[]
+
+  @@map("sessions")
+}
+
+model SessionSpeakers {
+  sessionId String   @map("session_id")
+  speakerId String   @map("speaker_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  sessions Sessions @relation(fields: [sessionId], references: [sessionId])
+  speakers Speakers @relation(fields: [speakerId], references: [speakerId])
+
+  @@id([sessionId, speakerId])
+  @@map("session_speakers")
+}
+
+model Speakers {
+  speakerId String   @id @map("speaker_id")
+  name      String   @map("name")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  sessionSpeakers SessionSpeakers[]
+
+  @@map("speakers")
+}

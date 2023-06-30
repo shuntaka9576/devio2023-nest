@@ -1,0 +1,28 @@
+type Speaker {
+  id: ID!
+  name: String!
+}
+
+type Session {
+  id: ID!
+  title: String!
+  speakers: [Speaker!]!
+  date: String!
+  start: String!
+  end: String!
+}
+
+type SessionConnection {
+  nodes: [Session!]!
+}
+
+input SessionsInput {
+  speakerName: String
+}
+
+type Query {
+  """
+  devio2023のセッション情報一覧を取得する関数
+  """
+  sessions(filter: SessionsInput): SessionConnection!
+}
