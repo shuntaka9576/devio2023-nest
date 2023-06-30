@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  mydb:
+    image: mysql:8.0.29
+    platform: linux/arm64/v8
+    container_name: devio2023-data
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_USER: nest
+      MYSQL_PASSWORD: nest
+      MYSQL_DATABASE: app
+    volumes:
+      - devio2023-data:/var/lib/mysql
+      - $PWD/container/mysql/conf.d:/etc/mysql/conf.d:cached
+    ports:
+      - '3306:3306'
+volumes:
+  devio2023-data:

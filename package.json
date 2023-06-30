@@ -1,0 +1,19 @@
+{
+  "name": "devio2023-nest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "web-api",
+    "infra"
+  ],
+  "dependencies": {
+    "@tsconfig/recommended": "1.0.2"
+  }
+}

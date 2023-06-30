@@ -1,0 +1,12 @@
+*
+!schema.graphql
+!web-api/package.json
+!web-api/package-lock.json
+!web-api/tsconfig.build.json
+!web-api/tsconfig.json
+!web-api/schema.prisma
+!web-api/.env
+!package-lock.json
+!web-api/src/*
+!package.json
+!.eslintrc.json
