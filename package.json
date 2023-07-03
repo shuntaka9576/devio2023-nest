@@ -15,5 +15,8 @@
   ],
   "dependencies": {
     "@tsconfig/recommended": "1.0.2"
+  },
+  "devDependencies": {
+    "prisma-kysely": "1.5.0"
   }
 }

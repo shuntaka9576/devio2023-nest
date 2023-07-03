@@ -37,3 +37,10 @@ model Speakers {
 
   @@map("speakers")
 }
+
+generator kysely {
+  provider = "prisma-kysely"
+
+  output = "./src/db"
+  fileName = "types.ts"
+}
